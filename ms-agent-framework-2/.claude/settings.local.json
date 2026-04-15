@@ -1,0 +1,50 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch"
+    ]
+  },
+  "skills": {
+    "ms-agent-framework": {
+      "type": "prompt",
+      "description": "Microsoft Agent Framework(Microsoft.Agents.AI)로 AI 에이전트를 구축할 때 사용하는 스킬. 에이전트 생성, Tool 정의, 세션 관리, 스트리밍 응답, 미들웨어, Agent-as-Tool, 커스텀 에이전트, 워크플로 등 프로덕션 패턴을 안내한다. OpenAI, Azure OpenAI, Anthropic, Foundry, OpenRouter 등 다양한 Provider를 지원하는 C# 프로젝트에 적용 가능.",
+      "prompt": "$file:.claude/skills/ms-agent-framework.md\n\n$file:.claude/skills/ms-agent-providers.md",
+      "trigger": {
+        "always": false,
+        "prefix": ["/ms-agent", "/agent-framework"],
+        "auto_trigger": "코드에서 Microsoft.Agents.AI, ChatClientAgent, AIAgent를 import하거나, 사용자가 Microsoft Agent Framework로 에이전트 구축을 요청할 때"
+      }
+    },
+    "ms-agent-workflows": {
+      "type": "prompt",
+      "description": "Microsoft Agent Framework Workflows로 그래프 기반 워크플로를 구축할 때 사용하는 스킬. Executor, Edge, Events, State, HITL, Checkpointing, Agent Orchestration(Sequential, Concurrent, Handoff, Group Chat) 패턴을 안내한다.",
+      "prompt": "$file:.claude/skills/ms-agent-workflows.md",
+      "trigger": {
+        "always": false,
+        "prefix": ["/ms-workflow", "/workflow"],
+        "auto_trigger": "코드에서 Microsoft.Agents.AI.Workflows, WorkflowBuilder, Executor, AgentWorkflowBuilder를 import하거나, 사용자가 워크플로, 오케스트레이션, 멀티에이전트 파이프라인을 요청할 때"
+      }
+    },
+    "ms-agent-rag": {
+      "type": "prompt",
+      "description": "Microsoft Agent Framework RAG(검색 증강 생성)으로 에이전트에 외부 지식을 연동할 때 사용하는 스킬. TextSearchProvider, File/Web Search, AIContextProvider, ChatHistoryMemoryProvider, Neo4j GraphRAG 패턴을 안내한다.",
+      "prompt": "$file:.claude/skills/ms-agent-rag.md",
+      "trigger": {
+        "always": false,
+        "prefix": ["/ms-rag", "/rag"],
+        "auto_trigger": "코드에서 TextSearchProvider, AIContextProvider, ChatHistoryMemoryProvider, FileSearchToolDefinition, WebSearchToolDefinition을 사용하거나, 사용자가 RAG, 검색 증강, 문서 검색, 벡터 검색, 컨텍스트 프로바이더, 메모리를 요청할 때"
+      }
+    },
+    "ms-agent-skills-mcp-a2a": {
+      "type": "prompt",
+      "description": "Microsoft Agent Framework의 Agent Skills(포터블 지식 패키지), MCP(Model Context Protocol) 도구 연동, A2A(Agent-to-Agent) 프로토콜 호스팅 패턴을 안내하는 스킬.",
+      "prompt": "$file:.claude/skills/ms-agent-skills-mcp-a2a.md",
+      "trigger": {
+        "always": false,
+        "prefix": ["/ms-skills", "/mcp", "/a2a"],
+        "auto_trigger": "코드에서 AgentSkillsProvider, AgentInlineSkill, AgentClassSkill, MCPToolDefinition, McpClientFactory, MapA2A를 사용하거나, 사용자가 스킬, Skills, MCP, A2A, 원격 에이전트, 에이전트 간 통신을 요청할 때"
+      }
+    }
+  }
+}
